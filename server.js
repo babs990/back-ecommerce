@@ -1,15 +1,15 @@
 const express =  require ( 'express' )
-const mysql = require("mysql")
+const mysql = require("mysql2")
 const app = express()
 const port = process.env.port || 3000
 
-app.get('/', (req, res) => {
+app.get('/res', (req, res) => {
   const connection = mysql.createConnection({
-    host : "sql11.freesqldatabase.com",
-    user : "sql11704300",
-    password : "JfeIyQAKYx",
-    database : "sql11704300",
-    port : 3306
+    host : "sql.freedb.tech",
+    port : 3306,
+    database : "freedb_maie_commerce",
+    user : "freedb_babs990",
+    password : "r5ZQ#swQ7Y$RbW4"
   })
   
   connection.connect((err)=>{
