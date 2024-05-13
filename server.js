@@ -3,7 +3,7 @@ const mysql = require("mysql2")
 const app = express()
 const port = process.env.port || 3000
 
-app.get('/res', (req, res) => {
+app.get('/', (req, res) => {
   const connection = mysql.createConnection({
     host : "sql.freedb.tech",
     port : 3306,
