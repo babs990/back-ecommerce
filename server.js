@@ -5,8 +5,8 @@ const port = process.env.port || 3000
 
 app.get('/', (req, res) => {
 
-  res.setHeader('Content-Type','text/json')
   res.status('200')
+  res.header('Content-Type','application/json')
 
   const connection = mysql.createConnection({
     host : "sql.freedb.tech",
