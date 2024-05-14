@@ -2,11 +2,10 @@ const express =  require ( 'express' )
 const mysql = require("mysql2")
 const app = express()
 const port = process.env.port || 3000
+const fs = require('fs')
+
 
 app.get('/', (req, res) => {
-
-  res.status('200')
-  res.header('Content-Type','application/json')
 
   const connection = mysql.createConnection({
     host : "sql.freedb.tech",
@@ -26,7 +25,10 @@ app.get('/', (req, res) => {
   
   connection.query("SELECT * FROM produits" , (err,rows,fieds)=>{
     if(err) throw err;
-    res.json(rows)
+    fs.writeFile('produits.json',JSON.stringify(rows),(err)=>{
+      console.log(err)
+    })
+    res.send('bien reçu')
   })  
 })
 
