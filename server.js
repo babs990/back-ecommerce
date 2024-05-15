@@ -4,9 +4,7 @@ const app = express()
 const port = process.env.port || 3000
 const fs = require('fs')
 
-
 app.get('/', (req, res) => {
-
   const connection = mysql.createConnection({
     host : "sql.freedb.tech",
     port : 3306,
@@ -28,8 +26,9 @@ app.get('/', (req, res) => {
     fs.writeFile('produits.json',JSON.stringify(rows),(err)=>{
       console.log(err)
     })
-    res.send('bien reçu')
   })  
+  
+  res.send('bonjour')
 })
 
 app.listen(port, () => {
